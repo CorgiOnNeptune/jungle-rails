@@ -28,6 +28,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :get_product_by_id
 
+  def get_product_count_by_category(categories_id)
+    Product.where({ category_id: categories_id }).count
+  end
+  helper_method :get_product_count_by_category
+
   def update_cart(new_cart)
     cookies[:cart] = {
       value: JSON.generate(new_cart),
