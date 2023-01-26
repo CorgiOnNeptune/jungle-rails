@@ -6,7 +6,9 @@
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
-    <h5>Order confirmation and shipping details were sent to <strong><%= @order.email %></strong>.</h5>
+    <div class="alert alert-success">
+      <h5>Order confirmation and shipping details were sent to <strong><%= @order.email %></strong>.</h5>
+    </div>
   </div>
 
   <div class="panel panel-default items">
