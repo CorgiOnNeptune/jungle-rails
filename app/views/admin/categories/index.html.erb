@@ -4,12 +4,11 @@
     <h1>Admin &raquo; All Categories</h1>
   </header>
 
-  <div class="well">
-    <%= link_to 'Return to Dashboard', admin_root_path, class: 'btn btn-md btn-info' %>
-  </div>
-
-  <div class="well">
-    <%= link_to '+ New Category', [:new, :admin, :category], class: 'btn btn-info' %>
+  <div class="card bg-light">
+    <div class="card-body">
+      <%= link_to '+ New Category', [:new, :admin, :category], class: 'btn  btn-info' %>
+      <%= link_to 'Return to Dashboard', admin_root_path, class: 'btn btn-md btn-info' %>
+    </div>
   </div>
 
   <div class="panel panel-default categories">

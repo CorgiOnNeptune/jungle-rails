@@ -4,14 +4,12 @@
     <h1>Admin &raquo; All Products</h1>
   </header>
 
-  <div class="well">
-    <%= link_to 'Return to Dashboard', admin_root_path, class: 'btn btn-md btn-info' %>
+  <div class="card bg-light">
+    <div class="card-body">
+      <%= link_to '+ New Product', [:new, :admin, :product], class: 'btn  btn-info' %>
+      <%= link_to 'Return to Dashboard', admin_root_path, class: 'btn btn-md btn-info' %>
+    </div>
   </div>
-  
-  <div class="well">
-    <%= link_to '+ New Product', [:new, :admin, :product], class: 'btn btn-info' %>
-  </div>
-
 
   <div class="panel panel-default products">
 

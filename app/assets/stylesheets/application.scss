@@ -29,6 +29,10 @@ form.button_to {
   display: inline;
 }
 
+.card {
+  margin-bottom: 1em;
+}
+
 .hero {
   height: 75vh;
   background-image: url("/images/hero_header.jpg");
@@ -110,8 +114,4 @@ form.button_to {
 }
 .text-danger {
   color: #f38792 !important;
-}
-
-.well {
-  padding-bottom: 1em
 }
