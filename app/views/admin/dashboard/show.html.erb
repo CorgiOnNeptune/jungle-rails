@@ -4,28 +4,38 @@
     <h1>Admin Dashboard</h1>
   </header>
 
-  <h2>Totals</h2>
-  
-  <div class="panel panel-default">
-    <table class="table table-bordered">
-      <tbody>
-      
-        <tr>
-          <th scope="row"><%= link_to 'Products', [:admin, :products] %></th>
-          <td><%= @products %></td>
-        </tr>
+  <div class="row">
+    
+    <div class="col-sm-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h4 class="card-title">Total Products</h4>
+          <p class="card-text"><%= @products %></p>
+          <%= link_to 'View Products', [:admin, :products], class: 'btn btn-info' %>
+          <div style="padding-top: 1rem">
+            <%= link_to '+ New Product', [:new, :admin, :product], class: 'btn btn-info' %>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <tr>
-          <th scope="row"><%= link_to 'Categories', [:admin, :categories] %></th>
-          <td><%= @categories %></td>
-        </tr>
+    <div class="col-sm-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h4 class="card-title">Total Categories</h4>
+          <p class="card-text"><%= @categories %></p>
+          <%= link_to 'View Categories', [:admin, :categories], class: 'btn   btn-info' %>
+          <div style="padding-top: 1rem">
+            <%= link_to '+ New Category', [:new, :admin, :category], class: 'btn  btn-info' %>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      </tbody>
-    </table>
   </div>
-  
+
   <div>
-    <%= link_to 'Visit Home Page', root_path, class: 'btn btn-md btn-info' %>
+    <%= link_to 'View Home Page', root_path, class: 'btn btn-md btn-info' %>
   </div>
 
 </section>
