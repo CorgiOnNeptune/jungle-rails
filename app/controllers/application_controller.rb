@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
 
+  def current_sale
+    Sale.active.first
+  end
+  helper_method :current_sale
+
   private
 
   def cart
