@@ -3,6 +3,7 @@ class Admin::DashboardController < ApplicationController
 
   def show
     @products = Product.count
-    @categories = Product.distinct.pluck(:category_id).count
+    @categories = Category.count
+    @sales = Sale.count
   end
 end

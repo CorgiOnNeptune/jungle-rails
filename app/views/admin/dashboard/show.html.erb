@@ -7,7 +7,7 @@
   <div class="row">
     
     <div class="col-sm-3">
-      <div class="card text-center">
+      <div class="card text-center bg-light">
         <div class="card-body">
           <h4 class="card-title">Total Products</h4>
           <p class="card-text"><%= @products %></p>
@@ -20,13 +20,26 @@
     </div>
 
     <div class="col-sm-3">
-      <div class="card text-center">
+      <div class="card text-center bg-light">
         <div class="card-body">
           <h4 class="card-title">Total Categories</h4>
           <p class="card-text"><%= @categories %></p>
           <%= link_to 'View Categories', [:admin, :categories], class: 'btn   btn-info' %>
           <div style="padding-top: 1rem">
             <%= link_to '+ New Category', [:new, :admin, :category], class: 'btn  btn-info' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card text-center bg-light">
+        <div class="card-body">
+          <h4 class="card-title">Total Sales</h4>
+          <p class="card-text"><%= @sales %></p>
+          <%= link_to 'View Sales', [:admin, :sales], class: 'btn   btn-info' %>
+          <div style="padding-top: 1rem">
+            <%= link_to '+ New Sale', [:new, :admin, :sale], class: 'btn  btn-info' %>
           </div>
         </div>
       </div>
