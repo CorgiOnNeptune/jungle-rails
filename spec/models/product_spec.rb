@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
   describe 'Validations' do
     it 'is valid with a name, price, quantity and category_id' do
-      @category = Category.find_by(id: 1)
+      @category = Category.create
       @product = Product.new(name: 'Name', price_cents: 1999, quantity: 4, category_id: @category[:id])
 
       expect(@product).to be_valid
@@ -11,7 +11,7 @@ RSpec.describe Product, type: :model do
 
     describe '@name' do
       it 'is not valid without a name' do
-        @category = Category.find_by(id: 1)
+        @category = Category.create
         @product = Product.new(name: nil, price_cents: 1999, quantity: 4, category_id: @category[:id])
 
         expect(@product).to_not be_valid
@@ -21,7 +21,7 @@ RSpec.describe Product, type: :model do
 
     describe '@price' do
       it 'is not valid without a price' do
-        @category = Category.find_by(id: 1)
+        @category = Category.create
         @product = Product.new(name: 'Name', price_cents: nil, quantity: 4, category_id: @category[:id])
 
         expect(@product).to_not be_valid
@@ -31,7 +31,7 @@ RSpec.describe Product, type: :model do
 
     describe '@quantity' do
       it 'is not valid without a quantity' do
-        @category = Category.find_by(id: 1)
+        @category = Category.create
         @product = Product.new(name: 'Name', price_cents: 1999, quantity: nil, category_id: @category[:id])
 
         expect(@product).to_not be_valid
@@ -41,7 +41,7 @@ RSpec.describe Product, type: :model do
 
     describe '@category' do
       it 'is not valid without a category' do
-        @category = Category.find_by(id: 1)
+        @category = Category.create
         @product = Product.new(name: 'Name', price_cents: 1999, quantity: 4, category_id: nil)
 
         expect(@product).to_not be_valid
