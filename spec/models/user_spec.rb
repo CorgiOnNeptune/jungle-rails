@@ -86,5 +86,40 @@ RSpec.describe User, type: :model do
   end
 
   describe '.authenticate_with_credentials' do
+    it 'should return the user when given correct credentials' do
+      @user = User.create(first_name: 'FName', last_name: 'LName', email: 'test@gmail.com', password: 'password',
+                          password_confirmation: 'password')
+      expect(@user).to be_valid
+
+      user = User.authenticate_with_credentials('test@gmail.com', 'password')
+      expect(user).to eql(@user)
+    end
+
+    it 'should return nil given incorrect credentials' do
+      @user = User.create(first_name: 'FName', last_name: 'LName', email: 'test@gmail.com', password: 'password',
+                          password_confirmation: 'password')
+      expect(@user).to be_valid
+
+      user = User.authenticate_with_credentials('test@gmail.com', 'wrong')
+      expect(user).to be_nil
+    end
+
+    it 'should ignore whitespace in email input and return user' do
+      @user = User.create(first_name: 'FName', last_name: 'LName', email: 'test@gmail.com', password: 'password',
+                          password_confirmation: 'password')
+      expect(@user).to be_valid
+
+      user = User.authenticate_with_credentials('     test@gmail.com    ', 'password')
+      expect(user).to eql(@user)
+    end
+
+    it 'should return user without case-sensitivity for email' do
+      @user = User.create(first_name: 'FName', last_name: 'LName', email: 'test@gmail.com', password: 'password',
+                          password_confirmation: 'password')
+      expect(@user).to be_valid
+
+      user = User.authenticate_with_credentials('TEST@gmAiL.cOM', 'password')
+      expect(user).to eql(@user)
+    end
   end
 end
